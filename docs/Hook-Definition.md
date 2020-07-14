@@ -13,6 +13,7 @@ Hooks are defined as JSON objects. Please note that in order to be considered va
  * `http-methods` - a list of allowed HTTP methods, such as `POST` and `GET`
  * `include-command-output-in-response` - boolean whether webhook should wait for the command to finish and return the raw output as a response to the hook initiator. If the command fails to execute or encounters any errors while executing the response will result in 500 Internal Server Error HTTP status code, otherwise the 200 OK status code will be returned.
  * `include-command-output-in-response-on-error` - boolean whether webhook should include command stdout & stderror as a response in failed executions. It only works if `include-command-output-in-response` is set to `true`.
+ * `stream-command-output` - boolean whether webhook should stream command stdout & stderror as a response. If true `include-command-output-in-response` is ignored.
  * `parse-parameters-as-json` - specifies the list of arguments that contain JSON strings. These parameters will be decoded by webhook and you can access them like regular objects in rules and `pass-arguments-to-command`.
  * `pass-arguments-to-command` - specifies the list of arguments that will be passed to the command. Check [Referencing request values page](Referencing-Request-Values.md) to see how to reference the values from the request. If you want to pass a static string value to your command you can specify it as
 `{ "source": "string", "name": "argumentvalue" }`
